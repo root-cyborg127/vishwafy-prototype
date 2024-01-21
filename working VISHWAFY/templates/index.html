@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotDL Web Downloader</title>
+    <style>
+        body {
+            background-color: #121212;
+            /* Dark black background color */
+            color: #0BDA51;
+            /* Green text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            color: #0BDA51;
+            /* Green text color for the heading */
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 75px;
+            background-color: #1f1f1f;
+            /* Darker black background for the form */
+            border: 2px solid #0BDA51;
+            /* Green border */
+            border-radius: 50px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #0BDA51;
+            /* Green text color for labels */
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: #333333c2;
+            /* Dark grey background for the input */
+            color: #fff;
+            /* White text color for the input */
+            border: 1px solid #0BDA51;
+            /* Green border */
+            border-radius: 5px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0BDA51;
+            /* Green button background color */
+            color: #121212;
+            /* Dark black text color for the button */
+            border: 2px solid #0BDA51;
+            /* Green border for the button */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #121212c7;
+            /* Dark black background color on hover */
+            color: #0BDA51;
+            /* Green text color on hover */
+        }
+        
+        #loading-spinner {
+            display: none;
+            border: 8px solid #00ff00;
+            /* Green border for the spinner */
+            border-top: 8px solid #121212;
+            /* Dark black border for the spinner */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        #progress-bar-container {
+            margin-top: 20px;
+            display: none;
+        }
+        
+        #progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: #00ff00;
+            /* Green background color */
+            border-radius: 5px;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 style="font-size: 80px;">SpotDL Web Downloader</h1>
+    </center>
+    <form action="/download" method="post" onsubmit="showLoading()">
+        <label for="url">Enter Spotify or YouTube URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Download</button>
+        <div id="loading-spinner"></div>
+    </form>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loading-spinner').style.display = 'inline-block';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your existing head content -->
+    <style>
+        body {
+            background-color: #121212;
+            color: #0BDA51;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            color: #0BDA51;
+            /* Green text color for the heading */
+        }
+        
+        .landing-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #1f1f1f;
+            /* Darker black background for the container */
+            border: 2px solid #0BDA51;
+            /* Green border */
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #0BDA51;
+            /* Green button background color */
+            color: #121212;
+            /* Dark black text color for the button */
+            border: 2px solid #0BDA51;
+            /* Green border for the button */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #121212c7;
+            /* Dark black background color on hover */
+            color: #0BDA51;
+            /* Green text color on hover */
+        }
+        
+        #download-animation {
+            display: none;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 8px solid #0BDA51;
+            border-top: 8px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite, fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        #completed-animation {
+            display: none;
+            width: 50px;
+            height: 50px;
+            background-color: #0BDA51;
+            /* Green background color */
+            border-radius: 50%;
+            animation: fadeIn 1s ease-in-out, scaleUp 0.5s ease-in-out;
+        }
+        
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        #success-message {
+            display: none;
+            color: #0BDA51;
+            /* Green text color for the success message */
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SpotDL Web Downloader</h1>
+
+    <div class="landing-container">
+        <button id="download-button" onclick="startDownload()">Download Music</button>
+
+        <div id="download-animation"></div>
+
+        <div id="completed-animation"></div>
+
+        <div id="success-message"></div>
+    </div>
+
+    <script>
+        function startDownload() {
+            const downloadButton = document.getElementById('download-button');
+            const downloadAnimation = document.getElementById('download-animation');
+            const completedAnimation = document.getElementById('completed-animation');
+            const successMessage = document.getElementById('success-message');
+
+            // Hide download button and show download animation
+            downloadButton.style.display = 'none';
+            downloadAnimation.style.display = 'block';
+
+            // Simulate download process (You can replace this with your actual download logic)
+            setTimeout(() => {
+                // Hide download animation and show completed animation
+                downloadAnimation.style.display = 'none';
+                completedAnimation.style.display = 'block';
+
+                // Display success message
+                successMessage.innerHTML = 'Download complete! You can now enjoy your music.';
+                successMessage.style.display = 'block';
+            }, 3000); // Simulating a 3-second download time (adjust as needed)
+        }
+    </script>
+</body>
+
+</html>

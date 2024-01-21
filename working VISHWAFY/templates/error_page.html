@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your existing head content -->
+    <style>
+        body {
+            background-color: #990000;
+            /* Dark red background color */
+            color: #FFFFFF;
+            /* White text color */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            color: #FFFFFF;
+            /* White text color for the heading */
+        }
+        
+        .error-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #550000;
+            /* Darker red background for the container */
+            border: 2px solid #FFFFFF;
+            /* White border */
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        #error-animation {
+            display: none;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 8px solid #FFFFFF;
+            border-top: 8px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite, fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        #error-message {
+            display: none;
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Internal Server Error</h1>
+
+    <div class="error-container">
+        <div id="error-animation"></div>
+
+        <div id="error-message">An internal server error occurred. Please try again later.</div>
+    </div>
+
+    <script>
+        // Simulate error animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorAnimation = document.getElementById('error-animation');
+            const errorMessage = document.getElementById('error-message');
+
+            // Show error animation
+            errorAnimation.style.display = 'block';
+
+            // Simulate error message
+            setTimeout(() => {
+                // Hide error animation
+                errorAnimation.style.display = 'none';
+
+                // Display error message
+                errorMessage.style.display = 'block';
+            }, 3000); // Simulating a 3-second error time (adjust as needed)
+        });
+    </script>
+</body>
+
+</html>
